@@ -180,6 +180,7 @@ export default async function DemandeDetailPage({ params }: PageProps) {
                     niveau: '',
                     centres_interet: [],
                     bio: '',
+                    photo_url: null,
                     created_at: '',
                     score: 0
                   }}
