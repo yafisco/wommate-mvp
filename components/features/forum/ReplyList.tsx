@@ -160,14 +160,14 @@ export const ReplyList: React.FC<ReplyListProps> = ({
                 {/* Réactions */}
                 <div className="flex items-center gap-1">
                   <ReactionButton 
-                    type="utile" 
+                    reactionType="utile" 
                     count={reply.utile_count || 0}
                     size="sm"
                     onClick={() => handleReaction(reply.id, 'utile')}
                     disabled={loading?.startsWith('reaction-')}
                   />
                   <ReactionButton 
-                    type="merci" 
+                    reactionType="merci" 
                     count={reply.merci_count || 0}
                     size="sm"
                     onClick={() => handleReaction(reply.id, 'merci')}

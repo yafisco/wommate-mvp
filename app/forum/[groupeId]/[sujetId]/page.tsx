@@ -217,7 +217,7 @@ export default async function SujetPage({ params }: PageProps) {
                         <input type="hidden" name="type" value="utile" />
                         <button type="submit" className="pointer-events-auto">
                           <ReactionButton 
-                            type="utile" 
+                            reactionType="utile" 
                             count={sujet.utile_count || 0}
                             size="sm"
                           />
@@ -228,7 +228,7 @@ export default async function SujetPage({ params }: PageProps) {
                         <input type="hidden" name="type" value="merci" />
                         <button type="submit" className="pointer-events-auto">
                           <ReactionButton 
-                            type="merci" 
+                            reactionType="merci" 
                             count={sujet.merci_count || 0}
                             size="sm"
                           />

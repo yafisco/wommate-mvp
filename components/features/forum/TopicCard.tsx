@@ -118,13 +118,13 @@ export const TopicCard: React.FC<TopicCardProps> = ({ topic, currentGroupId }) =
               {/* Réactions */}
               <div className="flex items-center gap-1">
                 <ReactionButton 
-                  type="utile" 
+                  reactionType="utile" 
                   count={topic.utile_count || 0}
                   size="sm"
                   className="pointer-events-none"
                 />
                 <ReactionButton 
-                  type="merci" 
+                  reactionType="merci" 
                   count={topic.merci_count || 0}
                   size="sm"
                   className="pointer-events-none"

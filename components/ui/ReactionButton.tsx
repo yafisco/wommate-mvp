@@ -5,14 +5,14 @@ import React from 'react'
 export type ReactionType = 'utile' | 'merci'
 
 export interface ReactionButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  type: ReactionType
+  reactionType: ReactionType
   count: number
   active?: boolean
   size?: 'sm' | 'md'
 }
 
 export const ReactionButton: React.FC<ReactionButtonProps> = ({
-  type,
+  reactionType,
   count,
   active = false,
   size = 'md',
@@ -43,7 +43,7 @@ export const ReactionButton: React.FC<ReactionButtonProps> = ({
     }
   }
 
-  const config = reactionConfig[type]
+  const config = reactionConfig[reactionType]
 
   return (
     <button
