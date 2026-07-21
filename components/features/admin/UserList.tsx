@@ -98,9 +98,6 @@ export const UserList: React.FC = () => {
                   <p className="font-medium text-indigo-nuit truncate">
                     {user.nom_complet || 'Utilisateur sans nom'}
                   </p>
-                  <p className="text-xs text-brume truncate">
-                    {user.email || 'Email non disponible'}
-                  </p>
                   <p className="text-xs text-brume">
                     {user.filiere} • {user.niveau}
                   </p>
