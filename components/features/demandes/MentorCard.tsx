@@ -131,7 +131,7 @@ export const MentorCard: React.FC<MentorCardProps> = ({ mentor, demandeId, onSuc
           <MessageButton
             userId={mentor.id}
             userName={mentor.nom_complet || 'Ce mentor'}
-            variant="ghost"
+            variant="secondary"
             size="sm"
           />
           <Button
