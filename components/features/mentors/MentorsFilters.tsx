@@ -40,7 +40,7 @@ export const MentorsFilters: React.FC<MentorsFiltersProps> = ({ filieres }) => {
       />
       <Select
         value={filiere}
-        onChange={handleFiliereChange}
+        onChange={(e) => handleFiliereChange(e.target.value)}
         options={[
           { value: 'all', label: 'Toutes les filières' },
           ...filieres.map(f => ({ value: f, label: f }))
