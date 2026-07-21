@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Container from '@/components/layout/Container'
 import { Badge } from '@/components/ui/Badge'
 import { getSujetsSansReponse } from '@/lib/actions/forum.actions'
-import { TopicCard } from '@/components/features/forum/TopicList'
+import { TopicCard } from '@/components/features/forum/TopicCard'
 
 export default async function MentorsPage() {
   const sujets = await getSujetsSansReponse(50)
