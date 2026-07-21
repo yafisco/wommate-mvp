@@ -234,7 +234,7 @@ export async function getMatchingDemands(filiere?: string): Promise<DemandeAideA
       // +2 points si même filière
       (profil.filiere === demande.filiere ? 2 : 0) +
       // +1 point par mot-clé trouvé
-      (profil.centres_interet || []).filter(keyword =>
+      (profil.centres_interet || []).filter((keyword: string) =>
         (demande.titre + ' ' + (demande.description || '')).toLowerCase().includes(keyword.toLowerCase())
       ).length
   }))

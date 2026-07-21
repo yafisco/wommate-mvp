@@ -73,7 +73,7 @@ export async function createGroupeThematique(formData: FormData) {
   })
 
   if (!validationResult.success) {
-    return { error: validationResult.error.errors[0].message }
+    return { error: validationResult.error.issues[0].message }
   }
 
   const { data, error } = await supabase
@@ -341,7 +341,7 @@ export async function createSujet(formData: FormData) {
   })
 
   if (!validationResult.success) {
-    return { error: validationResult.error.errors[0].message }
+    return { error: validationResult.error.issues[0].message }
   }
 
   // Nettoyer les tags
@@ -415,7 +415,7 @@ export async function createReponse(formData: FormData) {
   })
 
   if (!validationResult.success) {
-    return { error: validationResult.error.errors[0].message }
+    return { error: validationResult.error.issues[0].message }
   }
 
   const { data, error } = await supabase

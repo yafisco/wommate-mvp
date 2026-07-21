@@ -30,31 +30,12 @@ export function useFileUpload(): UseFileUploadReturn {
         try {
             const supabase = createClient()
 
-            // Upload avec suivi de progression
+            // Upload sans suivi de progression (Supabase ne supporte pas onUploadProgress)
             const { data, error } = await supabase.storage
                 .from('ressources-pedagogiques')
                 .upload(path, file, {
                     cacheControl: '3600',
-                    upsert: false,
-                    onUploadProgress: (progressEvent) => {
-                        const loaded = progressEvent.loaded || 0
-                        const total = progressEvent.total || file.size
-                        const percentage = Math.round((loaded / total) * 100)
-
-                        const elapsed = (Date.now() - startTimeRef.current) / 1000 // en secondes
-                        const speedMo = (loaded / 1024 / 1024) / elapsed
-                        const speed = speedMo > 0 ? `${speedMo.toFixed(2)} Mo/s` : '0 Mo/s'
-
-                        const remaining = total - loaded
-                        const etaSeconds = speedMo > 0 ? remaining / 1024 / 1024 / speedMo : 0
-                        const eta = etaSeconds > 0
-                            ? etaSeconds < 60
-                                ? `${Math.round(etaSeconds)}s`
-                                : `${Math.round(etaSeconds / 60)}min`
-                            : 'Immédiat'
-
-                        setProgress({ loaded, total, percentage, speed, eta })
-                    }
+                    upsert: false
                 })
 
             if (error) {

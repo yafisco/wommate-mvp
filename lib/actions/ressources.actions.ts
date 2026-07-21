@@ -223,8 +223,8 @@ export async function getDownloadUrl(ressourceId: string) {
     }
 
     // Incrémenter le compteur de téléchargements en arrière-plan (non-bloquant)
-    supabase.rpc('increment_download_count', { resource_id: ressourceId }).catch(err => {
-        console.warn('Erreur lors de l\'incrémentation du compteur:', err)
+    supabase.rpc('increment_download_count', { resource_id: ressourceId }).then(({ error }) => {
+        if (error) console.warn('Erreur lors de l\'incrémentation du compteur:', error)
     })
 
     return { success: true, url: data.signedUrl }
@@ -267,7 +267,7 @@ export async function deleteRessource(ressourceId: string) {
 
     if (deleteError) {
         console.error('Erreur lors de la suppression:', deleteError)
-        return { error: error.message }
+        return { error: deleteError.message }
     }
 
     revalidatePath('/ressources')

@@ -1,3 +1,4 @@
+import { Suspense } from 'react'
 import ResetPasswordForm from '@/components/features/auth/ResetPasswordForm'
 import { Metadata } from 'next'
 
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
 export default function ResetPasswordPage() {
   return (
     <div className="flex-1 flex items-center justify-center p-4">
-      <ResetPasswordForm />
+      <Suspense fallback={<div>Chargement...</div>}>
+        <ResetPasswordForm />
+      </Suspense>
     </div>
   )
 }
