@@ -166,7 +166,7 @@ export const ReportedContentList: React.FC = () => {
                     {item.type === 'sujet' ? 'Sujet' : item.type === 'reponse' ? 'Réponse' : 'Ressource'}
                   </Badge>
                   {item.groupe && (
-                    <Badge variant="secondary" className="text-xs">
+                    <Badge variant="default" className="text-xs">
                       {item.groupe.nom}
                     </Badge>
                   )}
