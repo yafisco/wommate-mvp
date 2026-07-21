@@ -106,7 +106,7 @@ export const PropositionCard: React.FC<PropositionCardProps> = ({
         <div className="flex justify-end gap-2 pt-2 border-t border-indigo-nuit/5">
           <MessageButton
             userId={proposition.mentor_id}
-            userName={proposition.mentor?.nom_complet}
+            userName={proposition.mentor?.nom_complet || undefined}
             variant="secondary"
             className="px-3 py-2 text-sm"
           />
