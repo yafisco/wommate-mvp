@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   DESIGN SYSTEM — "Le Grin numérique"
+   Tokens de couleur, typographie, animations et utilitaires globaux.
+   Tailwind CSS v4 : tout est déclaré via @theme inline.
+   ========================================================================= */
+
+@theme inline {
+  /* --- Couleurs --- */
+  --color-bone: #F7F4EC;
+  --color-indigo-nuit: #232752;
+  --color-attaya: #E8A63D;
+  --color-attaya-light: #F5D9A0;
+  --color-pousse: #3F8F63;
+  --color-terre: #C1502E;
+  --color-encre: #1B1B29;
+  --color-brume: #5B5A6E;
+  --color-white: #FFFFFF;
+
+  /* --- Polices (variables injectées par next/font dans layout.tsx) --- */
+  --font-display: var(--font-bricolage-grotesque);
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-ibm-plex-mono);
+
+  /* --- Animations --- */
+  --animate-pulse-grin: pulse-grin 3s ease-in-out infinite;
+  --animate-fade-in: fade-in 0.5s ease-out;
+  --animate-slide-up: slide-up 0.4s ease-out;
+  --animate-slide-in: slide-in 0.3s ease-out;
+}
+
+/* --- Keyframes pour les animations --- */
+@keyframes pulse-grin {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(100%); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+/* =========================================================================
+   STYLES GLOBAUX
+   ========================================================================= */
+
+body {
+  background-color: var(--color-bone);
+  color: var(--color-encre);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* --- Focus visible accessible (ring attaya) --- */
+*:focus-visible {
+  outline: 2px solid var(--color-attaya);
+  outline-offset: 2px;
+}
+
+/* --- Sélection de texte aux couleurs du projet --- */
+::selection {
+  background-color: var(--color-attaya-light);
+  color: var(--color-encre);
+}
+
+/* --- Scrollbar sobre (navigateurs Webkit) --- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bone);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-brume);
+  border-radius: 3px;
+}
